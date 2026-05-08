@@ -1,0 +1,177 @@
+set 7
+
+1-mkdir automation
+  cd automation
+
+2-ansible --version
+
+3-nano hosts
+[local]
+localhost ansible_connection=local
+
+(q1)
+
+ 4-nano create_file.yml
+---
+- name: Create a file on target machine
+  hosts: local
+  tasks:
+    - name: Create sample file
+      file:
+        path: /tmp/myfile.txt
+        state: touch     
+
+5-ansible-playbook -i hosts create_file.yml  
+    expected after above command[changed=1 failed=0]
+
+6- ls /tmp
+
+expected output:myfile.txt
+
+(q2)
+
+7-nano create_dirs.yml
+---
+- name: Create multiple directories using loop
+  hosts: local
+  tasks:
+    - name: Create directories
+      file:
+        path: "/tmp/{{ item }}"
+        state: directory       
+      loop:
+        - dir1 
+        - dir2 
+        - dir3
+
+8-ansible-playbook -i hosts create_dirs.yml
+
+9- ls /tmp
+     
+
+output:
+dir1
+dir2
+dir3
+
+
+
+
+SET 7 — Ansible Playbooks
+Experiment 1
+Create and execute a playbook to create a file on target machines
+
+Aim
+To create and execute an Ansible playbook that creates a file on the target machine.
+
+Requirements
+
+
+Ubuntu/Linux System
+
+
+Ansible installed
+
+
+Terminal access
+
+
+
+Procedure / Steps
+Step 1: Create Working Directory
+mkdir automationcd automation
+
+Step 2: Check Ansible Version
+ansible --version
+
+Step 3: Create Inventory File
+nano hosts
+Add the following content:
+[local]localhost ansible_connection=local
+Save and exit:
+
+
+Press Ctrl + X
+
+
+Press Y
+
+
+Press Enter
+
+
+
+Step 4: Create Playbook File
+nano create_file.yml
+Add the following playbook:
+---- name: Create a file on target machine  hosts: local  tasks:    - name: Create sample file      file:        path: /tmp/myfile.txt        state: touch
+Save and exit.
+
+Step 5: Execute the Playbook
+ansible-playbook -i hosts create_file.yml
+
+Expected Output
+changed=1failed=0
+
+Step 6: Verify File Creation
+ls /tmp
+Output
+myfile.txt
+
+Explanation
+KeywordDescriptionfileAnsible module to manage filespathLocation of filestate: touchCreates file if not present
+
+Playbook Used
+---- name: Create a file on target machine  hosts: local  tasks:    - name: Create sample file      file:        path: /tmp/myfile.txt        state: touch
+
+Result
+Successfully created and executed an Ansible playbook to create a file on the target machine.
+
+
+Experiment 2
+Write a playbook using loop to create multiple directories
+
+Aim
+To create multiple directories using loop in an Ansible playbook.
+
+Requirements
+
+
+Ubuntu/Linux System
+
+
+Ansible installed
+
+
+Inventory file configured
+
+
+
+Procedure / Steps
+Step 1: Create Playbook File
+nano create_dirs.yml
+Add the following playbook:
+---- name: Create multiple directories using loop  hosts: local  tasks:    - name: Create directories      file:        path: "/tmp/{{ item }}"        state: directory      loop:        - dir1        - dir2        - dir3
+Save and exit.
+
+Step 2: Execute the Playbook
+ansible-playbook -i hosts create_dirs.yml
+
+Step 3: Verify Directory Creation
+ls /tmp
+
+Output
+dir1dir2dir3
+
+Explanation
+KeywordDescriptionloopRepeats task multiple timesitemCurrent loop valuestate: directoryCreates directory
+
+Playbook Used
+---- name: Create multiple directories using loop  hosts: local  tasks:    - name: Create directories      file:        path: "/tmp/{{ item }}"        state: directory      loop:        - dir1        - dir2        - dir3
+
+Result
+Successfully created multiple directories using loop in an Ansible playbook.
+
+
+
+

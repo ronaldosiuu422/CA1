@@ -1,0 +1,165 @@
+set 3
+
+q1
+
+1-mkdir git_set3
+2-cd git_set3
+3-git init
+4-touch file1.txt
+5-notepad file1.txt
+This is file1 content.
+6-git add file1.txt
+7-git commit -m "Added file1"
+8-touch file2.txt
+9-notepad file2.txt
+This is file2 content.
+10-git add file2.txt
+11-git commit -m "Added file2"
+12-git log
+
+q2
+
+1-git branch newbranch
+2-git checkout newbranch
+3-touch file2a.txt
+4-notepad file2a.txt
+This is split content from file2.
+5-notepad file2.txt
+Remaining content in file2.
+6-git status
+7-git add file2.txt file2a.txt
+8-git commit -m "Split file2 into file2a"
+9-git log
+10-git branch
+
+
+
+
+Aim
+
+
+To create a Git repository with two files and commit them in separate commits.
+
+
+To create a new branch, split file2.txt into file2a.txt, and commit the changes.
+
+
+
+Theory
+Git is a distributed version control system used for tracking changes in files and managing project versions efficiently.
+Branch
+A branch in Git is used to create an independent line of development without affecting the main project files.
+Commit
+A commit stores changes permanently in the Git repository.
+Checkout
+The git checkout command is used to switch between branches.
+
+Commands Used
+CommandDescriptiongit initInitializes repositorygit addAdds files to staging areagit commitSaves changesgit logDisplays commit historygit branchCreates/shows branchesgit checkoutSwitches branchgit statusShows repository status
+
+Requirements
+
+
+Git installed
+
+
+Git Bash
+
+
+
+Program 1
+Create Repository with Two Files and Commit Separately
+Procedure
+Step 1:
+Open Git Bash.
+Step 2:
+Create folder:
+mkdir git_set3
+Step 3:
+Move into folder:
+cd git_set3
+Step 4:
+Initialize repository:
+git init
+Step 5:
+Create first file:
+touch file1.txt
+Step 6:
+Open file and add content:
+notepad file1.txt
+Add:
+This is file1 content.
+Step 7:
+Add file to staging area:
+git add file1.txt
+Step 8:
+Commit file:
+git commit -m "Added file1"
+Step 9:
+Create second file:
+touch file2.txt
+Step 10:
+Open file and add content:
+notepad file2.txt
+Add:
+This is file2 content.
+Step 11:
+Add second file:
+git add file2.txt
+Step 12:
+Commit second file separately:
+git commit -m "Added file2"
+Step 13:
+View commit history:
+git log
+
+Sample Output
+[master (root-commit)] Added file1[master] Added file2
+
+Result
+A Git repository was created successfully and two files were committed in separate commits.
+
+Program 2
+Create Branch and Split file2.txt into file2a.txt
+Procedure
+Step 1:
+Create new branch:
+git branch newbranch
+Step 2:
+Switch to new branch:
+git checkout newbranch
+Step 3:
+Create new file:
+touch file2a.txt
+Step 4:
+Open file2a.txt:
+notepad file2a.txt
+Add:
+This is split content from file2.
+Step 5:
+Modify file2.txt:
+notepad file2.txt
+Add:
+Remaining content in file2.
+Step 6:
+Check repository status:
+git status
+Step 7:
+Add modified files:
+git add file2.txt file2a.txt
+Step 8:
+Commit changes:
+git commit -m "Split file2 into file2a"
+Step 9:
+View commit history:
+git log
+Step 10:
+Check current branch:
+git branch
+
+Sample Output
+Switched to branch 'newbranch'[newbranch] Split file2 into file2a
+
+Result
+A new branch was created successfully.
+file2.txt was split into file2a.txt and the changes were committed successfully.

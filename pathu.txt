@@ -1,0 +1,177 @@
+set 10
+
+q1
+
+1-cd ~/selenium_lab
+2-source venv/bin/activate
+3-nano set10_q1.py
+from selenium import webdriver
+import time
+
+# Launch Chrome browser
+driver = webdriver.Chrome()
+
+# Open first website
+driver.get("https://www.google.com")
+
+# Open new tab
+driver.execute_script("window.open('https://www.bing.com');")
+
+# Wait for 5 seconds
+time.sleep(5)
+
+# Get all window handles
+windows = driver.window_handles
+
+# Close all browser windows one by one
+for window in windows:
+    driver.switch_to.window(window)
+    driver.close()
+
+4-python3 set10_q1.py
+
+q2
+
+5-nano set10_q2.py
+from selenium import webdriver
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.by import By
+import time
+
+# Launch Chrome browser
+driver = webdriver.Chrome()
+
+# Open test webpage
+driver.get("https://www.wikipedia.org")
+
+# Maximize window
+driver.maximize_window()
+
+# Wait for page load
+time.sleep(2)
+
+# Locate dropdown element
+dropdown = Select(driver.find_element(By.ID, "searchLanguage"))
+
+# Select option by visible text
+dropdown.select_by_visible_text("Deutsch")
+
+# Wait for 5 seconds
+time.sleep(5)
+
+# Close browser
+driver.close()
+
+6-python3 set10_q2.py
+
+SET 10
+Q1. Write a script to close all browser windows without using quit()
+Aim
+
+To write a Selenium script to close all browser windows without using the quit() method.
+
+Software Requirements
+Ubuntu/Linux
+Python 3
+Selenium package
+Google Chrome browser
+ChromeDriver
+Program
+from selenium import webdriver
+import time
+
+# Launch Chrome browser
+driver = webdriver.Chrome()
+
+# Open first website
+driver.get("https://www.google.com")
+
+# Open second tab
+driver.execute_script("window.open('https://www.bing.com');")
+
+# Wait for 5 seconds
+time.sleep(5)
+
+# Get all opened browser windows
+windows = driver.window_handles
+
+# Close all browser windows one by one
+for window in windows:
+    driver.switch_to.window(window)
+    driver.close()
+Explanation
+webdriver.Chrome() launches the Chrome browser.
+driver.get() opens the first webpage.
+window.open() opens another browser tab.
+window_handles stores IDs of all opened browser windows.
+switch_to.window() switches control to a selected window.
+close() closes the current browser window.
+All browser windows are closed individually without using quit().
+Output
+Chrome browser opens successfully.
+Google webpage opens in first tab.
+Bing webpage opens in second tab.
+All browser windows close automatically one by one.
+Result
+
+Thus, the Selenium script to close all browser windows without using quit() method was executed successfully.
+
+Q2. Automate selection of an option from a dropdown/listbox
+Aim
+
+To automate the selection of an option from a dropdown/listbox using Selenium WebDriver.
+
+Software Requirements
+Ubuntu/Linux
+Python 3
+Selenium package
+Google Chrome browser
+ChromeDriver
+Program
+from selenium import webdriver
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.by import By
+import time
+
+# Launch Chrome browser
+driver = webdriver.Chrome()
+
+# Open Wikipedia webpage
+driver.get("https://www.wikipedia.org")
+
+# Maximize browser window
+driver.maximize_window()
+
+# Wait for page to load
+time.sleep(2)
+
+# Locate dropdown element
+dropdown = Select(driver.find_element(By.ID, "searchLanguage"))
+
+# Select option from dropdown list
+dropdown.select_by_visible_text("Deutsch")
+
+# Wait for 5 seconds
+time.sleep(5)
+
+# Close browser
+driver.close()
+Explanation
+Select() is used to handle dropdown lists in Selenium.
+find_element(By.ID) locates the dropdown element.
+select_by_visible_text() selects an option using visible text.
+In this program, the language Deutsch is selected automatically from the dropdown list.
+Output
+Chrome browser opens successfully.
+Wikipedia homepage is displayed.
+The dropdown language option changes to Deutsch.
+Browser closes after 5 seconds.
+Result
+
+Thus, the Selenium script to automate dropdown/listbox option selection was executed successfully.
+
+
+
+
+
+

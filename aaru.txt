@@ -1,0 +1,206 @@
+   set 6
+
+1-ansible --version
+
+2-mkdir set6
+  cd set6
+
+3-nano hosts 
+          [local]
+          localhost ansible_connection=local
+  
+(q1)
+       
+4-nano command.yml
+---
+- name: Execute shell command
+  hosts: all
+  tasks:
+    - name: Run custom command
+      shell: "{{ my_command }}"
+      register: output
+
+    - name: Display output
+      debug:
+        var: output.stdout
+
+5-ansible-playbook -i hosts command.yml
+
+
+6-output:ok: [localhost] => {
+    "output.stdout": "Thu May  7 06:52:19 UTC 2026"
+}
+
+(q2)
+
+1-nano pipe_redirect.yml
+---
+- name: Pipe and redirection example
+  hosts: local
+  tasks:
+    - name: Execute command with pipe and redirection
+      shell:  ls | sort > output.txt
+
+2-ansible-playbook -i hosts pipe_redirect.yml
+3- cat output.txt
+
+output:
+command.yml
+hosts
+output.txt
+pipe_redirect.yml
+
+
+
+
+
+
+SET 6 — Ansible Playbooks
+Experiment 1
+Write a playbook to execute a shell command on remote machines
+Aim
+To write and execute an Ansible playbook that runs a shell command on remote machines.
+
+Requirements
+Ubuntu/Linux System
+
+Ansible installed
+
+Terminal access
+
+Procedure / Steps
+Step 1: Check Ansible Version
+ansible --version
+Step 2: Create Working Directory
+mkdir set6
+cd set6
+Step 3: Create Inventory File
+nano hosts
+Add the following content:
+
+[local]
+localhost ansible_connection=local
+Save and exit:
+
+Press Ctrl + X
+
+Press Y
+
+Press Enter
+
+Step 4: Create Playbook File
+nano command.yml
+Add the following playbook:
+
+---
+- name: Execute shell command
+  hosts: all
+  tasks:
+    - name: Run custom command
+      shell: "{{ my_command }}"
+      register: output
+
+    - name: Display output
+      debug:
+        var: output.stdout
+Save and exit.
+
+Step 5: Execute the Playbook
+ansible-playbook -i hosts command.yml -e "my_command=date"
+Output
+ok: [localhost] => {
+    "output.stdout": "Thu May 7 06:52:19 UTC 2026"
+}
+Explanation
+Keyword	Description
+hosts	Specifies target machines
+shell	Executes shell command
+register	Stores command output
+debug	Displays stored output
+Playbook Used
+---
+- name: Execute shell command
+  hosts: all
+  tasks:
+    - name: Run custom command
+      shell: "{{ my_command }}"
+      register: output
+
+    - name: Display output
+      debug:
+        var: output.stdout
+Result
+Successfully created and executed an Ansible playbook to run shell commands on remote machines.
+
+Experiment 2
+Execute a command with pipe (|) and redirection (>) using Ansible
+Aim
+To execute Linux commands with pipe (|) and redirection (>) using an Ansible playbook.
+
+Requirements
+Ubuntu/Linux System
+
+Ansible installed
+
+Inventory file configured
+
+Procedure / Steps
+Step 1: Create Playbook File
+nano pipe_redirect.yml
+Add the following content:
+
+---
+- name: Pipe and redirection example
+  hosts: local
+  tasks:
+    - name: Execute command with pipe and redirection
+      shell: ls | sort > output.txt
+Save and exit.
+
+Step 2: Run the Playbook
+ansible-playbook -i hosts pipe_redirect.yml
+Step 3: View Output File
+cat output.txt
+Output
+command.yml
+hosts
+output.txt
+pipe_redirect.yml
+Explanation
+Symbol	Meaning
+|	Pipe operator
+>	Redirect output to file
+Playbook Used
+---
+- name: Pipe and redirection example
+  hosts: local
+  tasks:
+    - name: Execute command with pipe and redirection
+      shell: ls | sort > output.txt
+Result
+Successfully executed Linux commands with pipe and redirection using Ansible playbooks.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

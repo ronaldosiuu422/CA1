@@ -1,0 +1,176 @@
+set4
+
+q1
+
+1-mkdir git_set4
+2-cd git_set4
+3-git init
+4-touch sample.txt
+5-notepad sample.txt
+This is original content.
+6-git add sample.txt
+7-git commit -m "Initial commit"
+8-git branch branch1
+9-git checkout branch1
+10-notepad sample.txt
+This content is modified in branch1.
+11-git add sample.txt
+12-git commit -m "Modified file in branch1"
+13-git checkout master
+14-notepad sample.txt
+This content is modified in master branch.
+15-git add sample.txt
+16-git commit -m "Modified file in master"
+
+q2
+
+1-git merge branch1
+2-git status
+3-notepad sample.txt
+This content is modified in master branch.
+This content is modified in branch1.
+4-git add sample.txt
+5-git commit -m "Resolved merge conflict"
+6-git log
+7-cat sample.txt
+
+
+
+
+
+
+
+Aim
+
+
+To create a branch and modify the same file differently in both branches.
+
+
+To merge the branch into the master branch and resolve merge conflicts manually.
+
+
+
+Theory
+Git is a distributed version control system used to track changes in files and manage project versions efficiently.
+Branch
+A branch is an independent line of development in Git. Branches allow developers to work on different features without affecting the main project.
+Merge
+Merging combines changes from one branch into another branch.
+Merge Conflict
+A merge conflict occurs when the same file is modified differently in two branches. Git cannot automatically decide which change to keep, so the conflict must be resolved manually.
+
+Commands Used
+CommandDescriptiongit initInitializes Git repositorygit addAdds files to staging areagit commitSaves changes permanentlygit branchCreates branchgit checkoutSwitches branchgit mergeMerges branchesgit statusDisplays repository statusgit logDisplays commit history
+
+Requirements
+
+
+Git installed
+
+
+Git Bash
+
+
+
+Program 1
+Create Branch and Modify Same File Differently
+Procedure
+Step 1:
+Open Git Bash.
+Step 2:
+Create folder:
+mkdir git_set4
+Step 3:
+Move into folder:
+cd git_set4
+Step 4:
+Initialize repository:
+git init
+Step 5:
+Create file:
+touch sample.txt
+Step 6:
+Open file and add content:
+notepad sample.txt
+Add:
+This is original content.
+Step 7:
+Add file:
+git add sample.txt
+Step 8:
+Commit file:
+git commit -m "Initial commit"
+Step 9:
+Create new branch:
+git branch branch1
+Step 10:
+Switch to branch1:
+git checkout branch1
+Step 11:
+Modify sample.txt:
+notepad sample.txt
+Replace content with:
+This content is modified in branch1.
+Step 12:
+Add modified file:
+git add sample.txt
+Step 13:
+Commit changes:
+git commit -m "Modified file in branch1"
+Step 14:
+Switch back to master branch:
+git checkout master
+Step 15:
+Modify sample.txt in master:
+notepad sample.txt
+Replace content with:
+This content is modified in master branch.
+Step 16:
+Add file:
+git add sample.txt
+Step 17:
+Commit changes:
+git commit -m "Modified file in master"
+
+Sample Output
+Switched to branch 'branch1'[branch1] Modified file in branch1Switched to branch 'master'[master] Modified file in master
+
+Result
+The same file was modified differently in both branches successfully.
+
+Program 2
+Merge Branch and Resolve Conflict Manually
+Procedure
+Step 1:
+Merge branch into master:
+git merge branch1
+Step 2:
+Conflict message appears:
+CONFLICT (content): Merge conflict in sample.txtAutomatic merge failed
+Step 3:
+Check repository status:
+git status
+Step 4:
+Open conflicted file:
+notepad sample.txt
+Conflict markers appear:
+<<<<<<< HEADThis content is modified in master branch.=======This content is modified in branch1.>>>>>>> branch1
+Step 5:
+Remove conflict markers and edit file:
+This content is modified in master branch.This content is modified in branch1.
+Save and close.
+Step 6:
+Add resolved file:
+git add sample.txt
+Step 7:
+Commit merge changes:
+git commit -m "Resolved merge conflict"
+Step 8:
+View commit history:
+git log
+
+Sample Output
+CONFLICT (content): Merge conflict in sample.txtAutomatic merge failed[master] Resolved merge conflict
+
+Result
+The branch was merged successfully into the master branch and the merge conflict was resolved manually.

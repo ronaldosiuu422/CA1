@@ -1,0 +1,120 @@
+set1
+
+q1
+
+1-git --version
+2-git config --global user.name "Saumya Rai"
+3-git config --global user.email "yourmail@gmail.com"
+4-git config --list
+
+q2
+
+5-mkdir git_set1
+6-cd git_set1
+7-git init
+8-touch intro.txt
+9-notepad intro.txt
+Hello, this is my first Git file.
+10-git status[Untracked files:
+intro.txt]
+11-git add intro.txt
+12-git commit -m "Added intro.txt file"
+13-git log
+
+Result
+
+Git repository initialized successfully.
+intro.txt file created, added, and committed successfully.
+
+
+
+
+
+
+SET 1 (Git) – Write Up
+Aim
+
+
+To install Git and configure global username and email.
+
+
+To initialize a Git repository, create a file, add content, and commit the changes.
+
+
+
+Theory
+Git is a distributed version control system used to track changes in source code and files during software development. It helps developers manage projects efficiently and maintain different versions of files.
+Important Git Commands
+CommandDescriptiongit initInitializes a new Git repositorygit statusShows repository statusgit addAdds files to staging areagit commitSaves changes permanentlygit logDisplays commit historygit configConfigures username and email
+
+Requirements
+
+
+Git Bash
+
+
+Git installed on system
+
+
+Windows/Linux operating system
+
+
+
+Procedure
+Program 1: Configure Git Username and Email
+Step 1:
+Open Git Bash.
+Step 2:
+Check Git version using:
+git --version
+Step 3:
+Configure username:
+git config --global user.name "Saumya Rai"
+Step 4:
+Configure email:
+git config --global user.email "yourmail@gmail.com"
+Step 5:
+Verify configuration:
+git config --list
+
+Output
+Username and email were configured successfully.
+
+Program 2: Initialize Repository and Commit File
+Procedure
+Step 1:
+Create a folder:
+mkdir git_set1
+Step 2:
+Move into folder:
+cd git_set1
+Step 3:
+Initialize Git repository:
+git init
+Step 4:
+Create file:
+touch intro.txt
+Step 5:
+Open file and add content:
+notepad intro.txt
+Add:
+Hello, this is my first Git file.
+Step 6:
+Check status:
+git status
+Step 7:
+Add file to staging area:
+git add intro.txt
+Step 8:
+Commit changes:
+git commit -m "Added intro.txt file"
+Step 9:
+View commit history:
+git log
+
+Sample Output
+Initialized empty Git repository[master (root-commit)] Added intro.txt file1 file changedcreate mode 100644 intro.txt
+
+Result
+Git was configured successfully.
+A new repository was initialized and the file intro.txt was added and committed successfully.

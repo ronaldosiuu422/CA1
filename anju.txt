@@ -1,0 +1,191 @@
+set 5
+
+q1
+
+1-mkdir myfolder
+2-cd myfolder
+3-touch file1.txt
+touch file2.txt
+touch file3.txt
+4-cd ..
+5-ls [output-myfolder]
+6-tar -czvf myfolder.tar.gz myfolder
+7-ls [output-myfolder  myfolder.tar.gz]
+8-rm -r myfolder
+9-ls[output-myfolder.tar.gz]
+
+Result
+
+Successfully compressed a directory using .tar.gz and removed the original files.
+
+q2
+
+10-touch sample.txt
+11-echo "Hello Linux" > sample.txt
+12-mkdir testdir
+13-touch testdir/a.txt
+touch testdir/b.txt
+14-sudo apt install zip unzip -y[check then do]
+15-zip sample.zip sample.txt
+16-zip -r testdir.zip testdir
+17-ls 
+[output-sample.zip
+testdir.zip]
+18-bzip2 sample.txt
+19-tar -cjvf testdir.tar.bz2 testdir
+20-ls [output-sample.txt.bz2
+testdir.tar.bz2]
+21-output-sample.zip
+testdir.zip
+sample.txt.bz2
+testdir.tar.bz2
+
+Result
+
+Successfully created ZIP and BZIP archives for both file and directory.
+
+
+
+
+SET 5 — Archive and Compression Commands in Linux
+Experiment 1
+Compress a directory using .tar.gz and remove original files
+
+Aim
+To compress a directory using .tar.gz format and remove the original directory after compression.
+
+Requirements
+
+
+Ubuntu/Linux System
+
+
+Terminal
+
+
+tar package (already available in Linux)
+
+
+
+Procedure / Steps
+Step 1: Open Terminal
+Open Ubuntu terminal using:
+Ctrl + Alt + T
+
+Step 2: Create a Directory
+mkdir myfolder
+
+Step 3: Move into Directory
+cd myfolder
+
+Step 4: Create Files inside Directory
+touch file1.txttouch file2.txttouch file3.txt
+
+Step 5: Return to Home Directory
+cd ..
+
+Step 6: Verify Directory Creation
+ls
+Output
+myfolder
+
+Step 7: Compress Directory into .tar.gz
+tar -czvf myfolder.tar.gz myfolder
+Explanation of Options
+OptionMeaningcCreate archivezCompress using gzipvDisplay processfSpecify filename
+
+Step 8: Verify Archive File
+ls
+Output
+myfoldermyfolder.tar.gz
+
+Step 9: Remove Original Directory
+rm -r myfolder
+
+Step 10: Verify Removal
+ls
+Output
+myfolder.tar.gz
+
+Commands Used
+tar -czvf myfolder.tar.gz myfolderrm -r myfolder
+
+Result
+Successfully compressed a directory into .tar.gz format and removed the original directory.
+
+
+Experiment 2
+Create ZIP and BZIP archives for both file and directory
+
+Aim
+To create ZIP and BZIP archives for files and directories in Linux.
+
+Requirements
+
+
+Ubuntu/Linux System
+
+
+zip utility
+
+
+bzip2 utility
+
+
+
+Procedure / Steps
+Part A — ZIP Archive
+Step 1: Create Sample File
+touch sample.txt
+Add content to file:
+echo "Hello Linux" > sample.txt
+
+Step 2: Create Sample Directory
+mkdir testdir
+Create files inside directory:
+touch testdir/a.txttouch testdir/b.txt
+
+Step 3: Install ZIP Utility
+sudo apt install zip unzip -y
+
+Step 4: Create ZIP Archive for File
+zip sample.zip sample.txt
+
+Step 5: Create ZIP Archive for Directory
+zip -r testdir.zip testdir
+Explanation
+OptionMeaning-rRecursive compression for directory
+
+Step 6: Verify ZIP Files
+ls
+Output
+sample.ziptestdir.zip
+
+Part B — BZIP Archive
+Step 7: Compress File using BZIP
+bzip2 sample.txt
+Output
+sample.txt.bz2
+
+Step 8: Compress Directory using tar + bzip
+tar -cjvf testdir.tar.bz2 testdir
+Explanation of Options
+OptionMeaningcCreate archivejCompress using bzip2vVerbose modefSpecify filename
+
+Step 9: Verify BZIP Files
+ls
+Output
+sample.txt.bz2testdir.tar.bz2
+
+Commands Used
+ZIP Commands
+zip sample.zip sample.txtzip -r testdir.zip testdir
+
+BZIP Commands
+bzip2 sample.txttar -cjvf testdir.tar.bz2 testdir
+
+Result
+Successfully created ZIP and BZIP archives for both files and directories in Linux.
+
+
+

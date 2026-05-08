@@ -1,0 +1,138 @@
+set 8
+
+q1
+
+1- cd ~/selenium_lab
+source venv/bin/activate
+
+2-nano set8_q1.py
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+import time
+
+# Launch Chrome browser
+driver = webdriver.Chrome()
+
+# Open Google India
+driver.get("https://www.google.co.in")
+
+# Wait for 5 seconds
+time.sleep(5)
+
+# Close browser
+
+3-python3 set8_q1.py
+
+q2
+
+4-nano set8_q2.py
+from selenium import webdriver
+import time
+
+# Launch Chrome browser
+driver = webdriver.Chrome()
+
+# Open google.com
+driver.get("https://www.google.com")
+
+# Wait for page to load
+time.sleep(3)
+
+# Get page title
+title = driver.title
+
+5-python3 set8_q2.py
+
+output-Page Title: Google
+Current URL: https://www.google.com/
+Title verification successful
+Google page opened successfully
+
+
+
+Q1. Write a Selenium script to open google.co.in using ChromeDriver
+
+Aim
+
+To write a Selenium script to open the Google India webpage using ChromeDriver.
+
+Software Requirements
+Ubuntu/Linux
+Python 3
+Selenium package
+Google Chrome browser
+ChromeDriver
+
+Explanation
+webdriver.Chrome() launches the Chrome browser.
+driver.get() opens the specified URL.
+time.sleep(5) pauses execution for 5 seconds.
+driver.close() closes the browser window.
+
+Output
+Chrome browser opens successfully.
+Google India homepage is displayed.
+Browser closes after 5 seconds.
+
+Result
+
+Thus, the Selenium script to open google.co.in using ChromeDriver was executed successfully.
+
+Q2. Verify page title and redirection from google.com to google.co.in
+
+Aim
+
+To verify the page title and URL redirection using Selenium WebDriver.
+
+Software Requirements
+Ubuntu/Linux
+Python 3
+Selenium package
+Google Chrome browser
+ChromeDriver
+
+Explanation
+driver.title retrieves the webpage title.
+driver.current_url retrieves the current webpage URL.
+The program checks whether the title contains "Google".
+It also verifies whether the URL contains "google".
+
+Output
+
+Example Output:
+
+Page Title: Google
+Current URL: https://www.google.com/
+Title verification successful
+Google page opened successfully
+
+Result
+
+Thus, the Selenium script successfully verified the page title and webpage URL using ChromeDriver.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

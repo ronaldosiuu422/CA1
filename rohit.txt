@@ -1,0 +1,163 @@
+set 9
+
+q1
+
+1- cd ~/selenium_lab
+2- source venv/bin/activate
+
+3-nano set9_q1.py
+from selenium import webdriver
+import time
+
+# Launch Edge browser
+driver = webdriver.Edge()
+
+# Open Google
+driver.get("https://www.google.com")
+
+# Wait for 5 seconds
+time.sleep(5)
+
+# Close browser
+driver.close()
+
+4-python3 set9_q1.py
+
+q2
+
+5-nano set9_q2.py
+from selenium import webdriver
+import time
+
+# Get browser choice from user
+browser = input("Enter browser name (chrome/edge): ")
+
+# Launch browser based on input
+if browser.lower() == "chrome":
+    driver = webdriver.Chrome()
+
+elif browser.lower() == "edge":
+    driver = webdriver.Edge()
+
+else:
+    print("Invalid browser")
+    exit()
+
+# Open Google
+driver.get("https://www.google.com")
+
+# Wait for 5 seconds
+time.sleep(5)
+
+# Close browser
+driver.close()
+
+6-python3 set9_q2.py
+
+output-Enter browser name (chrome/edge): chrome
+
+
+
+Q1. Write a Selenium script to open Google using Internet Explorer Driver
+Aim
+
+To write a Selenium script to open the Google webpage using Internet Explorer Driver (Edge Driver in Linux environment).
+
+Software Requirements
+Ubuntu/Linux
+Python 3
+Selenium package
+Microsoft Edge browser
+Edge WebDriver
+Program
+from selenium import webdriver
+import time
+
+# Launch Edge browser
+driver = webdriver.Edge()
+
+# Open Google webpage
+driver.get("https://www.google.com")
+
+# Wait for 5 seconds
+time.sleep(5)
+
+# Close browser
+driver.close()
+Explanation
+webdriver.Edge() launches the Microsoft Edge browser.
+driver.get() opens the specified webpage.
+time.sleep(5) pauses execution for 5 seconds.
+driver.close() closes the browser window.
+Output
+Edge browser opens successfully.
+Google homepage is displayed.
+Browser closes after 5 seconds.
+Result
+
+Thus, the Selenium script to open Google using Edge WebDriver was executed successfully.
+
+Q2. Write a program to launch browser based on user input (Chrome/IE)
+Aim
+
+To write a Selenium script that launches a browser based on user input.
+
+Software Requirements
+Ubuntu/Linux
+Python 3
+Selenium package
+Google Chrome browser
+Microsoft Edge browser
+ChromeDriver
+Edge WebDriver
+Program
+from selenium import webdriver
+import time
+
+# Get browser choice from user
+browser = input("Enter browser name (chrome/edge): ")
+
+# Launch browser based on user input
+if browser.lower() == "chrome":
+    driver = webdriver.Chrome()
+
+elif browser.lower() == "edge":
+    driver = webdriver.Edge()
+
+else:
+    print("Invalid browser name")
+    exit()
+
+# Open Google webpage
+driver.get("https://www.google.com")
+
+# Wait for 5 seconds
+time.sleep(5)
+
+# Close browser
+driver.close()
+Explanation
+input() accepts browser name from the user.
+browser.lower() converts input into lowercase.
+Based on user input, either Chrome or Edge browser is launched.
+driver.get() opens the Google webpage.
+driver.close() closes the browser.
+Output
+
+Example 1:
+
+Enter browser name (chrome/edge): chrome
+Chrome browser opens successfully.
+Google webpage is displayed.
+Browser closes after 5 seconds.
+
+Example 2:
+
+Enter browser name (chrome/edge): edge
+Edge browser opens successfully.
+Google webpage is displayed.
+Browser closes after 5 seconds.
+
+Result
+
+Thus, the Selenium script to launch browsers based on user input was executed successfully.
