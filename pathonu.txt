@@ -1,0 +1,246 @@
+set 11
+
+(q1)
+
+1-sudo systemctl start jenkins
+(then it will ask password [sudo: authenticate] Password:saumya)
+
+2-open browser (http://localhost:8080)
+(Jenkins dashboard should appear)
+
+3-mkdir -p ~/jenkins_lab/ant_project
+cd ~/jenkins_lab/ant_project
+
+4-nano Hello.java
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello from Ant Build!");
+    }
+}
+
+5-nano build.xml
+<project name="HelloProject" default="compile">
+
+    <target name="compile">
+        <mkdir dir="build"/>
+        <javac srcdir="." destdir="build"/>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="Hello" classpath="build" fork="true"/>
+    </target>
+
+</project>
+
+6-ant run
+  expected output-Hello from Ant Build!
+BUILD SUCCESSFUL
+
+ (q2)
+
+7-mkdir -p ~/jenkins_lab/maven_project/src/main/java
+cd ~/jenkins_lab/maven_project
+
+8-nano pom.xml
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.demo</groupId>
+    <artifactId>HelloMaven</artifactId>
+    <version>1.0</version>
+
+</project>
+
+9-nano src/main/java/Hello.java
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello from Maven!");
+    }
+}
+
+10-mvn compile
+expected output:BUILD SUCCESS
+
+11-mkdir -p ~/jenkins_lab/script_project
+cd ~/jenkins_lab/script_project
+
+12-nano test.sh
+echo "This is Batch Script Job"
+date
+pwd
+
+13-chmod +x test.sh
+
+14-./test.sh
+output-This is Batch Script Job
+
+
+
+
+
+
+
+SET 11 — Jenkins Build Jobs
+Experiment 1
+Install Jenkins and create a job using Apache Ant build tool
+
+Aim
+To install Jenkins and create a Java project build using the Apache Ant build tool.
+
+Requirements
+
+
+Ubuntu/Linux System
+
+
+Java installed
+
+
+Jenkins installed
+
+
+Apache Ant installed
+
+
+Web browser
+
+
+
+Procedure / Steps
+Step 1: Start Jenkins Service
+sudo systemctl start jenkins
+Enter system password when prompted.
+
+Step 2: Open Jenkins Dashboard
+Open browser and enter:
+http://localhost:8080
+Jenkins dashboard appears.
+
+Step 3: Create Project Directory
+mkdir -p ~/jenkins_lab/ant_projectcd ~/jenkins_lab/ant_project
+
+Step 4: Create Java Program
+nano Hello.java
+Add the following code:
+public class Hello {    public static void main(String[] args) {        System.out.println("Hello from Ant Build!");    }}
+Save and exit.
+
+Step 5: Create Ant Build File
+nano build.xml
+Add the following code:
+<project name="HelloProject" default="compile">    <target name="compile">        <mkdir dir="build"/>        <javac srcdir="." destdir="build"/>    </target>    <target name="run" depends="compile">        <java classname="Hello" classpath="build" fork="true"/>    </target></project>
+Save and exit.
+
+Step 6: Execute Ant Build
+ant run
+
+Output
+Hello from Ant Build!BUILD SUCCESSFUL
+
+Explanation
+ElementDescriptionjavacCompiles Java source codemkdirCreates build directorytargetDefines Ant tasksdependsExecutes dependent target
+
+Files Used
+Hello.java
+public class Hello {    public static void main(String[] args) {        System.out.println("Hello from Ant Build!");    }}
+
+build.xml
+<project name="HelloProject" default="compile">    <target name="compile">        <mkdir dir="build"/>        <javac srcdir="." destdir="build"/>    </target>    <target name="run" depends="compile">        <java classname="Hello" classpath="build" fork="true"/>    </target></project>
+
+Result
+Successfully installed Jenkins and executed a Java project build using Apache Ant.
+
+
+Experiment 2
+Create jobs using Maven and Batch Script
+
+Aim
+To create Jenkins jobs using Maven build tool and Batch Script.
+
+Requirements
+
+
+Ubuntu/Linux System
+
+
+Maven installed
+
+
+Jenkins installed
+
+
+Shell scripting support
+
+
+
+Part A — Maven Job
+Step 1: Create Maven Project Directory
+mkdir -p ~/jenkins_lab/maven_project/src/main/javacd ~/jenkins_lab/maven_project
+
+Step 2: Create pom.xml File
+nano pom.xml
+Add the following code:
+<project xmlns="http://maven.apache.org/POM/4.0.0"         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0         http://maven.apache.org/xsd/maven-4.0.0.xsd">    <modelVersion>4.0.0</modelVersion>    <groupId>com.demo</groupId>    <artifactId>HelloMaven</artifactId>    <version>1.0</version></project>
+Save and exit.
+
+Step 3: Create Java Program
+nano src/main/java/Hello.java
+Add the following code:
+public class Hello {    public static void main(String[] args) {        System.out.println("Hello from Maven!");    }}
+Save and exit.
+
+Step 4: Compile Maven Project
+mvn compile
+
+Output
+BUILD SUCCESS
+
+Part B — Batch Script Job
+Step 5: Create Script Project Directory
+mkdir -p ~/jenkins_lab/script_projectcd ~/jenkins_lab/script_project
+
+Step 6: Create Shell Script File
+nano test.sh
+Add the following commands:
+echo "This is Batch Script Job"datepwd
+Save and exit.
+
+Step 7: Provide Execute Permission
+chmod +x test.sh
+
+Step 8: Run Script
+./test.sh
+
+Output
+This is Batch Script Job
+
+Explanation
+CommandDescriptionmvn compileCompiles Maven projectchmod +xGives execute permission./test.shExecutes shell script
+
+Result
+Successfully created and executed Jenkins jobs using Maven build tool and Batch Script.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
